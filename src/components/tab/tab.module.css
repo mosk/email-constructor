@@ -1,0 +1,26 @@
+.item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 calc(var(--padding) * 2);
+  font-size: 16px;
+  line-height: 3;
+  background-image: unset;
+  background-color: aliceblue;
+  background: aliceblue;
+  border: none;
+  filter: brightness(60%);
+  cursor: pointer;
+}
+
+.button--active {
+  filter: brightness(100%);
+  opacity: 1;
+}
