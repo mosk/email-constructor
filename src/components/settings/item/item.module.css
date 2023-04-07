@@ -1,0 +1,57 @@
+.wrapper {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.button {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0 calc(var(--padding) * 2);
+  font-size: 20px;
+  line-height: 3;
+  color: #333333;
+  text-align: left;
+  background-image: unset;
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.button::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  right: calc(var(--padding) * 2);
+  border-right: 2px solid #333333;
+  border-bottom: 2px solid #333333;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform 0.4s ease;
+}
+
+.button[data-active='true']:after {
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.4s ease;
+}
+
+.button[data-active='true'] + .content {
+  display: block;
+}
+
+.content {
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--padding) * 1.5) calc(var(--padding) * 2)
+    calc(var(--padding) * 2);
+  background-color: #f0f0f0;
+}
+
+.content > *:not(:last-child) {
+  margin-bottom: calc(var(--padding) * 2);
+}

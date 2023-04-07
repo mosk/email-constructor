@@ -1,0 +1,29 @@
+.item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 calc(var(--padding) * 2);
+  font-size: 15px;
+  line-height: 3;
+  color: #888888;
+  background-image: unset;
+  background-color: #f0f0f0;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.button--active {
+  filter: brightness(100%);
+  color: #333333;
+  background-color: #ffffff;
+  transition: color 0.4s ease, background-color 0.4s ease;
+}

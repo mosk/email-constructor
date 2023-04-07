@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 calc(var(--padding) * 3);
+  padding-left: calc((100% - 1280px) / 2);
+  padding-right: calc((100% - 1280px) / 2);
+}
+
+.main > * {
+  width: 50%;
+}
+
+.main > *:last-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
