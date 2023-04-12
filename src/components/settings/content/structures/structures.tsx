@@ -1,9 +1,9 @@
+import { FC } from "react";
 // import { useSelector } from 'react-redux';
+import styles from "./structures.module.css";
+import Item from "./item/item";
 
-import styles from './structures.module.css';
-import Item from './item/item';
-
-const Structures = () => {
+const Structures: FC = () => {
   const rows = [
     {
       columns: [{ type: 1 }],

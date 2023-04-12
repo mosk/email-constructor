@@ -1,31 +1,30 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import Item from '../item/item';
+import { FC, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Item from "../item/item";
 // import SettingsEmail from '../settings-email/settings-email';
-import { Text as InputText } from '../../ui/input/text/text';
+import { Text as InputText } from "../../ui/input/text/text";
 // import SettingsInputRange from '../settings-input-range/settings-input-range';
-import { IncreaseDecreaseNumber as InputIncDecNumber } from '../../ui/input/increase-decrease-number/increase-decrease-number';
+import { IncreaseDecreaseNumber as InputIncDecNumber } from "../../ui/input/increase-decrease-number/increase-decrease-number";
 
-import { settingsActions } from '../../../services/actions/index';
+import { settingsActions } from "../../../services/actions/index";
 
-export const Theme = () => {
+export const Theme: FC = () => {
   const dispatch = useDispatch();
-  const [currentSettings, setCurrentSettings] = useState('global');
-  const emailWidth = useSelector((state) => state.emailSettings.width);
+  const [currentSettings, setCurrentSettings] = useState("global");
+  const emailWidth = useSelector((state: any) => state.emailSettings.width);
 
-  const emailTitleHandler = (value) => {
+  const emailTitleHandler = (value: string) => {
     dispatch(settingsActions.addTitle(value));
   };
 
-  const emailPreheaderHandler = (value) => {
+  const emailPreheaderHandler = (value: string) => {
     dispatch(settingsActions.addPreheader(value));
   };
 
-  const emailWidthHandler = (button) => {
-    if (button.dataset.action === 'increment') {
+  const emailWidthHandler = (button: HTMLButtonElement) => {
+    if (button.dataset.action === "increment") {
       dispatch(settingsActions.incrementWidth());
-    } else if (button.dataset.action === 'decrement') {
+    } else if (button.dataset.action === "decrement") {
       dispatch(settingsActions.decrementWidth());
     }
   };
@@ -65,12 +64,7 @@ export const Theme = () => {
       >
         Настройки текстовых блоков: заголовки, обычный текст и т.п.
       </Item>
-      <Item
-        setCurrentSettings={setCurrentSettings}
-        currentSettings={currentSettings}
-        name="Кнопки"
-        value="buttons"
-      >
+      <Item setCurrentSettings={setCurrentSettings} currentSettings={currentSettings} name="Кнопки" value="buttons">
         Настройки кнопок – основная, второстепенная и т.д.
       </Item>
       <Item
@@ -79,8 +73,7 @@ export const Theme = () => {
         name="Адаптивность"
         value="adaptive"
       >
-        Настройки адаптивности – масштабируемое/адаптивное письмо (перенести в
-        общие?)
+        Настройки адаптивности – масштабируемое/адаптивное письмо (перенести в общие?)
       </Item>
     </>
   );

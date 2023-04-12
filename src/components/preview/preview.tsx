@@ -1,12 +1,12 @@
-import styles from './preview.module.css';
+import { FC } from "react";
+import styles from "./preview.module.css";
+import EmailFrame from "./frame/frame";
 
-import EmailFrame from './frame/frame';
-
-const EmailPreview = () => {
+const EmailPreview: FC = () => {
   return (
     <section className={styles.wrapper}>
       <h2 className="visually-hidden">Превью письма</h2>
-      <div className={styles['email-wrapper']}>
+      <div className={styles["email-wrapper"]}>
         <EmailFrame />
       </div>
     </section>

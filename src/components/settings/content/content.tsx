@@ -1,11 +1,9 @@
-import { useState } from "react";
-// import { useDispatch, useSelector } from 'react-redux';
-
+import { FC, useState } from "react";
 import Item from "../item/item";
 import Structures from "./structures/structures";
 import Blocks from "./blocks/blocks";
 
-export const Content = () => {
+export const Content: FC = () => {
   const [currentSettings, setCurrentSettings] = useState("");
 
   return (

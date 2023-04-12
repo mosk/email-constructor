@@ -9,5 +9,5 @@
   width: 100%;
   min-height: calc(100vh - 81px);
   overflow: auto;
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
 }

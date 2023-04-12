@@ -1,12 +1,17 @@
-import { useDrag } from 'react-dnd';
+import { FC } from "react";
+import { useDrag } from "react-dnd";
+import PropTypes from "prop-types";
+import styles from "./item.module.css";
 
-import PropTypes from 'prop-types';
-import styles from './item.module.css';
+// заменить
+type TColumns = {
+  columns: any;
+};
 
-const Item = ({ columns }) => {
+const Item: FC<TColumns> = ({ columns }) => {
   // dnd
   const [{ isDrag }, dragRef] = useDrag({
-    type: 'row',
+    type: "row",
     item: { columns },
     collect: (monitor) => ({
       isDrag: monitor.isDragging(),
@@ -14,10 +19,7 @@ const Item = ({ columns }) => {
   });
 
   return (
-    <div
-      className={`${styles.wrapper} ${isDrag ? styles.dragged : ''}`}
-      ref={dragRef}
-    >
+    <div className={`${styles.wrapper} ${isDrag ? styles.dragged : ""}`} ref={dragRef}>
       {[...columns].map((col) => {
         return <span className={styles.col} key={col.type} />;
       })}

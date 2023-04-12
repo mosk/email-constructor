@@ -1,25 +1,24 @@
-import { useEffect, useContext } from 'react';
-import { DndProvider, DndContext } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { useSelector } from 'react-redux';
-import Frame, { FrameContext } from 'react-frame-component';
-import styles from './frame.module.css';
-import EmailStructure from '../email/template/template';
+import { useEffect, useContext, FC } from "react";
+import { DndProvider, DndContext } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { useSelector } from "react-redux";
+import Frame, { FrameContext } from "react-frame-component";
+import styles from "./frame.module.css";
+import EmailStructure from "../email/template/template";
 
-// eslint-disable-next-line react/prop-types
-const DndFrame = ({ children }) => {
-  const { dragDropManager } = useContext(DndContext);
+const DndFrame = ({ children }: { children: any }) => {
+  const { dragDropManager } = useContext(DndContext) as any;
   const { window } = useContext(FrameContext);
 
   useEffect(() => {
-    dragDropManager.getBackend().addEventListeners(window);
+    dragDropManager!.getBackend().addEventListeners(window);
   });
 
   return children;
 };
 
-const EmailFrame = () => {
-  const emailTheme = useSelector((state) => state.emailSettings.title);
+const EmailFrame: FC = () => {
+  const emailTheme = useSelector((state: any) => state.emailSettings.title);
 
   const head = () => {
     return (
@@ -43,7 +42,7 @@ const EmailFrame = () => {
         mountTarget="body"
         head={head()}
         initialContent='<!DOCTYPE html><html><body style="margin: 0; padding: 0;"></body></html>'
-        style={{ minHeight: 'calc(100% -81px)' }}
+        style={{ minHeight: "calc(100% -81px)" }}
       >
         <DndFrame>
           <EmailStructure />

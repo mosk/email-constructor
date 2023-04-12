@@ -1,6 +1,7 @@
-import styles from './app-header.module.css';
+import { FC } from "react";
+import styles from "./app-header.module.css";
 
-const AppHeader = () => {
+const AppHeader: FC = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -11,7 +12,7 @@ const AppHeader = () => {
           Ссылка 2
         </a>
       </nav>
-      <div className={styles['nav-user']}>user</div>
+      <div className={styles["nav-user"]}>user</div>
     </header>
   );
 };
