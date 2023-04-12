@@ -25,5 +25,28 @@ export const contentSlice = createSlice({
 
       state.rows = [...rows];
     },
+    addContent: (state, action) => {
+      const rowID = action.payload.id.split(`_`)[0];
+      const columnID = action.payload.id.split(`_`)[1];
+      const row = [...state.rows].find((item) => item.id === rowID);
+      const content = row.columns[columnID].content;
+
+      const contentItem = {
+        id: uuid(),
+        type: action.payload.item.type,
+      };
+
+      if (content) {
+        row.columns[columnID] = {
+          ...row.columns[columnID],
+          content: [...content, contentItem],
+        };
+      } else {
+        row.columns[columnID] = {
+          ...row.columns[columnID],
+          content: [contentItem],
+        };
+      }
+    },
   },
 });

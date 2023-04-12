@@ -35,6 +35,7 @@ const EmailContainer: FC = () => {
             <Dropzone
               isHover={isHover}
               minHeight={160}
+              margin={16}
               desc="Перетащите сюда нужную&nbsp;структуру (ряд&nbsp;с&nbsp;одной&nbsp;колонкой и&nbsp;т.п.)"
               ref={dropEmailContainer}
             />
