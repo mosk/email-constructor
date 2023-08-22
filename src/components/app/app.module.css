@@ -1,8 +1,6 @@
 .main {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: minmax(660px, 3fr) minmax(280px, 1fr);
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -10,10 +8,6 @@
   padding: 0 calc(var(--padding) * 3);
   padding-left: calc((100% - 1440px) / 2);
   padding-right: calc((100% - 1440px) / 2);
-}
-
-.main>* {
-  width: 50%;
 }
 
 .main>*:last-child {

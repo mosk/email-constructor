@@ -11,7 +11,7 @@ const App: FC = () => {
   return (
     <div className="app">
       <ErrorBoundary>
-        <AppHeader />
+        {/* <AppHeader /> */}
         <DndProvider backend={HTML5Backend}>
           <main className={styles.main}>
             <EmailPreview />
